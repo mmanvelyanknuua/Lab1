@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\IStaTP Lab1.props" />
+</Project>

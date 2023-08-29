@@ -1,0 +1,67 @@
+﻿@model IEnumerable<IStaTP_Lab1.Models.ReadersBook>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Книги за читачем @ViewBag.ReaderName</h1>
+
+<p>
+    @Html.ActionLink("Додати", "Create", new {readerId = @ViewBag.ReaderId})
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Reader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Issue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlanReturn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FactReturn)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reader.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Issue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlanReturn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FactReturn)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Деталі</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

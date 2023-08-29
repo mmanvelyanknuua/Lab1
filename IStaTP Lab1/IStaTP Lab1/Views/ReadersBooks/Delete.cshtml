@@ -1,0 +1,57 @@
+﻿@model IStaTP_Lab1.Models.ReadersBook
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Видалити</h1>
+
+<h3>Ви справді хочете видалити це?</h3>
+<div>
+    <h4>Книга</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Issue)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Issue)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PlanReturn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PlanReturn)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FactReturn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FactReturn)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Book)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Book.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Reader)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Reader.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Видалити" class="btn btn-outline-danger" /> |
+        <a asp-action="IndexByReader" asp-route-readerId="@Model.ReaderId" asp-route-name="@ViewBag.ReaderName">Повернутися до списку</a>
+    </form>
+</div>
